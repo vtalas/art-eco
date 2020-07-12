@@ -1,0 +1,96 @@
+body, html {
+    font-family: 'MarianinaFY', monospace;
+    font-weight: bold;
+    font-style: normal;
+    color: #1E1E1C;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --swiper-theme-color: red;
+}
+
+.main {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.bottom-logo {
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-logo img {
+    width: 100%;
+    max-width: 400px;
+
+}
+
+h3 {
+    color: #EB5C3B;
+}
+
+.section.header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.section.header .logo {
+
+    width: 120px;
+}
+
+.section.header .claim {
+    margin-left: auto;
+    width: 120px;
+}
+
+
+.section.swipe {
+
+    height: 300px;
+    overflow: hidden;
+    /*height: 500px;*/
+}
+
+.section.content {
+    display: flex;
+}
+
+.section.content .content-item-item {
+    display: inline-block;
+}
+
+.section.bullets {
+
+    height: 3rem;
+}
+
+/*SWIPER*/
+.swiper-pagination-bullet {
+    width: 1.38rem;
+    height: 1.38rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.address {
+
+}
+
+.strpeni {
+    max-width: 220px;
+    text-align: justify;
+}
+
+.kontakt {
+    margin-left: auto;
+}
