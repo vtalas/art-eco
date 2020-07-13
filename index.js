@@ -14,3 +14,8 @@ var mySwiper = new Swiper('.swiper-container', {
 		prevEl: '.swiper-button-prev',
 	},
 })
+
+setTimeout(function() {
+	// force to redraw
+	document.querySelector('.bullets').classList.add('sssss')
+}, 20)
