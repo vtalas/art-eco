@@ -8,7 +8,7 @@ body, html {
 }
 
 :root {
-    --swiper-theme-color: red;
+    --swiper-theme-color: #EB5C3B;;
 }
 
 .main {
@@ -55,7 +55,6 @@ h3 {
 
 .section.swipe {
 
-    height: 300px;
     overflow: hidden;
     /*height: 500px;*/
 }
@@ -69,18 +68,18 @@ h3 {
 }
 
 .section.bullets {
-
-    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
 }
 
 /*SWIPER*/
 .swiper-pagination-bullet {
-    width: 1.38rem;
-    height: 1.38rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0 0.4rem;
 }
-
 
 .address {
 
@@ -94,3 +93,26 @@ h3 {
 .kontakt {
     margin-left: auto;
 }
+
+
+.aspect-ratio-container {
+    background-color: red;
+    width: 100%;
+    padding-top: 65%;
+    /*padding-top: 100%; !* 1:1 Aspect Ratio *!*/
+    position: relative; /* If you want text inside of it */
+}
+
+.aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.aspect-ratio-container .aspect-ratio-content img {
+    width: 100%;
+}
+
+
