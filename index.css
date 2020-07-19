@@ -46,6 +46,7 @@ body, html {
 h3 {
     margin-top: 0;
     color: #EB5C3B;
+    text-decoration: none;
 }
 
 .section.header {
@@ -74,6 +75,15 @@ h3 {
 
 .section.content .content-item-item {
     display: inline-block;
+    text-decoration: underline;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.strpeni-content {
+    text-decoration: underline;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
 }
 
 .section.bullets {
@@ -95,6 +105,9 @@ h3 {
 }
 
 .address {
+    text-decoration: underline;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
     min-width: 12rem;
 }
 
@@ -105,6 +118,11 @@ h3 {
 
 .kontakt {
     margin-left: auto;
+}
+
+.kontakt a {
+    display: block;
+    color: #1E1E1C;
 }
 
 
