@@ -16,6 +16,10 @@ body, html {
     background: #EDEDED;
 }
 
+.swiper-button-next:focus {
+    outline: none;
+}
+
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: #EB5C3B;
 }
