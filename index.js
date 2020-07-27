@@ -19,3 +19,6 @@ setTimeout(function() {
 	// force to redraw
 	document.querySelector('.bullets').classList.add('sssss')
 }, 20)
+
+
+document.querySelector('a')
