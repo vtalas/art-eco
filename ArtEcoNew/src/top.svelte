@@ -6,6 +6,7 @@
     .claim {
         margin-left: auto;
     }
+
     .burger {
         width: 40px;
         background-color: #999999;
@@ -14,6 +15,15 @@
 
 </style>
 
-<img class="logo" src="/assets/barevne_pozitivni.svg" alt=""/>
+
+<script>
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
+
+</script>
+
+
+<img class="logo" src="/assets/barevne_pozitivni.svg" alt="" on:click={()=>dispatch('logo-click')}/>
 <span class="claim">volejte +420 123456 789</span>
 <span class="burger">|||</span>
