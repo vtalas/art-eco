@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import FluidBox from './fluidBox.svelte';
+    import { fade, fly, slide } from 'svelte/transition';
 
     const dispatch = createEventDispatcher();
 
@@ -10,16 +11,22 @@
     const onGalleryClick = function(evt, name) {
         dispatch('gallery-click', { name });
     }
+
+    const delay = 400
 </script>
 
 <FluidBox size=".5">
 
     {#if selectedGallery}
-        skjdfjkdskfhds
+
+        {#each galleries[0].items as item}
+            <div class="box" in:fade="{{delay}}"><img src="{item.src}"/></div>
+        {/each}
+
     {:else}
-        <div on:click={(evt)=> onGalleryClick(evt, false)}>CLOSE</div>
         {#each galleries as gallery}
-            <div class="box" on:click={(evt)=> onGalleryClick(evt, gallery.name)}>{gallery.name}</div>
+            <div class="box" in:fade="{{delay}}"
+                 on:click={(evt)=> onGalleryClick(evt, gallery.name)}>{gallery.name}</div>
         {/each}
     {/if}
 
@@ -32,5 +39,6 @@
         height: 180px;
         background-color: #999999;
         margin: 5px;
+        overflow: hidden;
     }
 </style>

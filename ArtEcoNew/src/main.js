@@ -1,5 +1,8 @@
-import App, { defaultTitle } from './App.svelte';
+import App from './App.svelte';
 
+/**
+ * https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_components
+ */
 
 //TODO v.talas
 /*

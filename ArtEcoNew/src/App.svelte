@@ -1,6 +1,6 @@
 <script>
 
-    import { fade, fly } from 'svelte/transition';
+    import { fade, fly, slide } from 'svelte/transition';
 
     let indexView = true;
 
@@ -32,8 +32,14 @@
         updateTitle();
     }
 
+    let titleVisible = true
+
     function updateTitle(name = defaultTitle) {
+        titleVisible = false
         title = name;
+        setTimeout(function() {
+            titleVisible = true
+        }, 200);
     }
 
 </script>
@@ -46,11 +52,16 @@
 
     <FluidRow>
         <FluidBox size=".5">
-            <h1>{title}</h1>
-            <p>
-                Relizace staveb a interiérů s důrazem na dokolanou preciznost provedení. Loeoadslflkj alksdflj laskdflkj
-                kadskfljlas
-            </p>
+            {#if titleVisible}
+                <h1 in:fly="{{ y: 50, duration: 800 }}" out:fly="{{ y: -20, duration: 200 }}">{title}</h1>
+            {/if}
+            {#if !selectedGallery}
+                <p out:fade="{{duration: 100}}" in:fade="{{delay: 1000}}">
+                    Relizace staveb a interiérů s důrazem na dokolanou preciznost provedení. Loeoadslflkj alksdflj
+                    laskdflkj
+                    kadskfljlas
+                </p>
+            {/if}
         </FluidBox>
         <FluidBox size=".5">ss</FluidBox>
     </FluidRow>
@@ -133,18 +144,6 @@
     <div style="font-size: 14px">
         {w}x{h} {small}
     </div>
-
-    {#if indexView}
-        <p transition:fade>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to
-            build
-            Svelte apps.</p>
-        <p transition:fly="{{ y: 200, duration: 2000 }}">
-            Flies in and out
-        </p>
-        <p in:fly="{{ y: 200, duration: 2000, intro: true }}" out:fade>
-            Flies in, fades out
-        </p>
-    {/if}
 
 </Layout>
 
