@@ -77,6 +77,6 @@ const items = [
 
 export const galleries = [
     { name: 'Byt policistky', items },
-    { name: 'Asdljflskdjjf ', items },
-    { name: 'Bsdljflskdjjf ', items }
+    { name: 'Asdljflskdjjf ', items: items.slice().reverse() },
+    { name: 'Bsdljflskdjjf ', items: items.slice(2) }
 ]

@@ -19,14 +19,17 @@
 
     {#if selectedGallery}
 
-        {#each galleries[0].items as item}
-            <div class="box" in:fade="{{delay}}"><img src="{item.src}"/></div>
+        {#each galleries[0].items as item, index}
+            <div class="box" in:fade="{{delay: delay +(index * 100)}}"><img src="{item.src}" alt="xx"/></div>
         {/each}
 
     {:else}
         {#each galleries as gallery}
             <div class="box" in:fade="{{delay}}"
-                 on:click={(evt)=> onGalleryClick(evt, gallery.name)}>{gallery.name}</div>
+                 on:click={(evt)=> onGalleryClick(evt, gallery.name)}>{gallery.name}
+
+                <img src="{gallery.items[0].src}" alt="xxx"/>
+            </div>
         {/each}
     {/if}
 

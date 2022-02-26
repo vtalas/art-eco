@@ -13,9 +13,11 @@
     import FluidBox from './fluidBox.svelte';
     import FluidRow from './fluidRow.svelte';
     import GalleryLayout from './GaleryLayout.svelte';
+    import SpacerTitle from './SpacerTitle.svelte';
 
     let w, h;
     $: small = w < 800
+    $: indexViewObserver = indexView
     let title = defaultTitle;
 
     function onGalleryClick(event) {
@@ -27,7 +29,7 @@
     }
 
     function navigateHome() {
-        indexView = false;
+        indexView = true;
         selectedGallery = '';
         updateTitle();
     }
@@ -35,11 +37,7 @@
     let titleVisible = true
 
     function updateTitle(name = defaultTitle) {
-        titleVisible = false
         title = name;
-        setTimeout(function() {
-            titleVisible = true
-        }, 200);
     }
 
 </script>
@@ -52,18 +50,25 @@
 
     <FluidRow>
         <FluidBox size=".5">
-            {#if titleVisible}
-                <h1 in:fly="{{ y: 50, duration: 800 }}" out:fly="{{ y: -20, duration: 200 }}">{title}</h1>
-            {/if}
-            {#if !selectedGallery}
-                <p out:fade="{{duration: 100}}" in:fade="{{delay: 1000}}">
-                    Relizace staveb a interiérů s důrazem na dokolanou preciznost provedení. Loeoadslflkj alksdflj
+            {#key title}
+                <h1 class="{indexView ? 'title-index-view': 'title'}"
+                    in:fly="{{ delay: 300, y: 50, duration: 800 }}"
+                    out:fly="{{ y: -20, duration: 200 }}">
+                    {title}
+                </h1>
+            {/key}
+            {#if indexView}
+                <p out:fade="{{ duration: 20 }}"
+                   in:fade="{{ delay: 1000}}"
+                   class="{indexView ? 'title-text-index-view': 'title-text'}">
+                    Relaizace staveb a interiérů s důrazem na dokolanou preciznost provedení. Loeoadslflkj alksdflj
                     laskdflkj
+                    kadskfljlas
                     kadskfljlas
                 </p>
             {/if}
         </FluidBox>
-        <FluidBox size=".5">ss</FluidBox>
+        <FluidBox size=".5">&nbsp;</FluidBox>
     </FluidRow>
     <FluidRow>
         <GalleryLayout
@@ -74,11 +79,11 @@
     </FluidRow>
 
     {#if indexView}
-        <div class="title">sluzby</div>
+        <SpacerTitle title="SLUŽBY"></SpacerTitle>
 
         <FluidRow>
             {#if !small}
-                <FluidBox size=".1">a</FluidBox>
+                <FluidBox size=".1">&nbsp;</FluidBox>
             {/if}
 
             <FluidBox size="{small ? 'auto' : 0.6}">
@@ -99,13 +104,13 @@
                 </ul>
             </FluidBox>
             {#if !small}
-                <FluidBox size=".1">a</FluidBox>
+                <FluidBox size=".1">&nbsp;</FluidBox>
             {/if}
         </FluidRow>
-        <div class="title">team</div>
+        <SpacerTitle title="TEAM"></SpacerTitle>
         <FluidRow>
             {#if !small}
-                <FluidBox size=".1">a</FluidBox>
+                <FluidBox size=".1">&nbsp;</FluidBox>
             {/if}
             <FluidBox size="{small ? 'auto' : 0.5}">
                 <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
@@ -114,12 +119,12 @@
                 <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
             </FluidBox>
             {#if !small}
-                <FluidBox size=".1">a</FluidBox>
+                <FluidBox size=".1">&nbsp;</FluidBox>
             {/if}
         </FluidRow>
         <FluidRow>
             {#if !small}
-                <FluidBox size=".1">a</FluidBox>
+                <FluidBox size=".1">&nbsp;</FluidBox>
             {/if}
             <FluidBox size="{small ? 'auto' : 0.5}">
                 <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
@@ -128,16 +133,17 @@
                 <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
             </FluidBox>
             {#if !small}
-                <FluidBox size=".1">a</FluidBox>
+                <FluidBox size=".1">&nbsp;</FluidBox>
             {/if}
         </FluidRow>
-        <div class="title">kontakt</div>
+        <SpacerTitle title="KONTAKT"></SpacerTitle>
         <FluidRow>
-            <FluidBox size=".1">.</FluidBox>
+            <FluidBox size=".1">&nbsp;</FluidBox>
             <FluidBox size=".3">xx</FluidBox>
             <FluidBox size=".3">xx</FluidBox>
             <FluidBox size=".3">xx</FluidBox>
-            <FluidBox size=".1">.</FluidBox>
+            <FluidBox size=".1">&nbsp;</FluidBox>
+            <FluidBox size=".1">&nbsp;</FluidBox>
         </FluidRow>
     {/if}
 
@@ -153,8 +159,12 @@
         padding: 30px;
     }
 
-    .title {
-        text-align: center;
+    .title, .title-text {
+        color: black;
+    }
+
+    .title-index-view, .title-text-index-view {
+        color: #EB5C3B;
     }
 
     .section.header {

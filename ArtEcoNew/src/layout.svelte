@@ -5,7 +5,7 @@
         margin: 0 auto;
         position: relative;
         box-sizing: border-box;
-        border: 1px solid darkred;
+        /*border: 1px solid darkred;*/
     }
 
     @media only screen and (max-height: 1200px) {
