@@ -21,7 +21,7 @@ new App({
     target: document.body,
     intro: true,
     props: {
-        defaultTitle: 'Mezi stavarinou a umenim',
+        defaultTitle: 'Mezi stavařinou a uměním.',
         galleries,
         selectedGallery: ''
     }
