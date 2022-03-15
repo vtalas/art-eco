@@ -1,4 +1,5 @@
 import App from './App.svelte';
+import * as utils from './utils.js';
 
 /**
  * https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_components
@@ -17,12 +18,21 @@ import App from './App.svelte';
 
 import { galleries } from '../data/galleries.mjs';
 
-new App({
-    target: document.body,
-    intro: true,
-    props: {
-        defaultTitle: 'Mezi stavařinou a uměním.',
-        galleries,
-        selectedGallery: ''
-    }
-});
+(async function() {
+
+    const lang = 'cs'
+    const i18n = await utils.json(`/json/${lang}.json`);
+
+    new App({
+        target: document.body,
+        intro: true,
+        props: {
+            i18n,
+            defaultTitle: 'Mezi stavařinou a uměním.',
+            galleries,
+            selectedGallery: ''
+        }
+    });
+
+})()
+

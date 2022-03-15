@@ -7,14 +7,17 @@
     export let defaultTitle;
     export let galleries;
     export let selectedGallery;
+    export let i18n
 
     import Top from './top.svelte';
     import Layout from './layout.svelte';
     import FluidBox from './fluidBox.svelte';
     import FluidRow from './fluidRow.svelte';
     import GalleryLayout from './GaleryLayout.svelte';
-    import SpacerTitle from './SpacerTitle.svelte';
+
     import Service from './service.svelte';
+    import Kontakt from './kontakt.svelte';
+    import Team from './team.svelte';
 
     let w, h;
     $: small = w < 800
@@ -34,8 +37,6 @@
         selectedGallery = '';
         updateTitle();
     }
-
-    let titleVisible = true
 
     function updateTitle(name = defaultTitle) {
         title = name;
@@ -76,51 +77,15 @@
                 selectedGallery="{selectedGallery}"
                 galleries="{galleries}"
                 on:gallery-click="{onGalleryClick}"
-        ></GalleryLayout>
+        />
     </FluidRow>
 
     {#if indexView}
 
-        <Service  small="{small}"/>
+        <Service small="{small}" i18n="{i18n}"/>
+        <Team small="{small}" i18n="{i18n}"/>
+        <Kontakt small="{small}" i18n="{i18n}"/>
 
-        <SpacerTitle title="TEAM"></SpacerTitle>
-        <FluidRow>
-            {#if !small}
-                <FluidBox size=".1">&nbsp;</FluidBox>
-            {/if}
-            <FluidBox size="{small ? 'auto' : 0.5}">
-                <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
-            </FluidBox>
-            <FluidBox size="{small ? 'auto' : 0.5}">
-                <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
-            </FluidBox>
-            {#if !small}
-                <FluidBox size=".1">&nbsp;</FluidBox>
-            {/if}
-        </FluidRow>
-        <FluidRow>
-            {#if !small}
-                <FluidBox size=".1">&nbsp;</FluidBox>
-            {/if}
-            <FluidBox size="{small ? 'auto' : 0.5}">
-                <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
-            </FluidBox>
-            <FluidBox size="{small ? 'auto' : 0.5}">
-                <div class="kkk">AAAA teamsdkfljalksj ljkdslkfj lksjdflkj ldskjflksdjf</div>
-            </FluidBox>
-            {#if !small}
-                <FluidBox size=".1">&nbsp;</FluidBox>
-            {/if}
-        </FluidRow>
-        <SpacerTitle title="KONTAKT"></SpacerTitle>
-        <FluidRow>
-            <FluidBox size=".1">&nbsp;</FluidBox>
-            <FluidBox size=".3">xx</FluidBox>
-            <FluidBox size=".3">xx</FluidBox>
-            <FluidBox size=".3">xx</FluidBox>
-            <FluidBox size=".1">&nbsp;</FluidBox>
-            <FluidBox size=".1">&nbsp;</FluidBox>
-        </FluidRow>
     {/if}
 
     <div style="font-size: 14px">
@@ -130,10 +95,6 @@
 </Layout>
 
 <style>
-
-    .kkk {
-        padding: 30px;
-    }
 
     .title, .title-text {
         color: black;

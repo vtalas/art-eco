@@ -3,11 +3,12 @@
     import FluidBox from './fluidBox.svelte';
     import FluidRow from './fluidRow.svelte';
 
-    export let small = false
+    export let small = false;
+    export let i18n;
 </script>
 
 
-<SpacerTitle title="SLUŽBY" />
+<SpacerTitle title="{i18n.SERVICE}" />
 
 <FluidRow>
     {#if !small}
