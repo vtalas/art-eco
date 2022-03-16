@@ -5,10 +5,14 @@
 
     export let small = false;
     export let i18n;
+
+
 </script>
 
 
-<SpacerTitle title="{i18n.SERVICE}" />
+<SpacerTitle title="{i18n.SERVICE}"/>
+
+
 
 <FluidRow>
     {#if !small}
@@ -26,10 +30,9 @@
     </FluidBox>
     <FluidBox size="{small ? 'auto' : 0.2}">
         <ul>
-            <li>sldfljksdf</li>
-            <li>sldfljksdf</li>
-            <li>sldfljksdf</li>
-            <li>sldfljksdf</li>
+            {#each i18n.SERVICE_ITEMS as item}
+                <li>{item}</li>
+            {/each}
         </ul>
     </FluidBox>
     {#if !small}

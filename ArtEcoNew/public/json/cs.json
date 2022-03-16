@@ -1,5 +1,6 @@
 {
 	"CONTACT": "KONTAKT",
 	"SERVICE": "SLUŽBY",
-	"TEAM": "NÁŠ TEAM"
+	"TEAM": "NÁŠ TEAM",
+	"SERVICE_ITEMS": ["Zednické práce", "Obkladačské práce", "Malířské práce", "Zednické práce", "Obkladačské práce", "Malířské práce"]
 }
