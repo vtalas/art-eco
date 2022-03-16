@@ -2,6 +2,7 @@
     import { createEventDispatcher } from 'svelte';
     import FluidBox from './fluidBox.svelte';
     import { fade, fly, slide } from 'svelte/transition';
+    import AspectRatioBox from './AspectRatioBox.svelte';
 
     const dispatch = createEventDispatcher();
 
@@ -11,37 +12,56 @@
     const onGalleryClick = function(evt, name) {
         dispatch('gallery-click', { name });
     }
-
     const delay = 400
 </script>
 
-<FluidBox size=".5">
 
-    {#if selectedGallery}
+{#if selectedGallery}
 
-        {#each galleries[0].items as item, index}
-            <div class="box" in:fade="{{delay: delay +(index * 100)}}"><img src="{item.src}" alt="xx"/></div>
-        {/each}
+    {#each galleries[0].items as item, index}
+        <div class="box" in:fade="{{delay: delay +(index * 100)}}"><img src="{item.src}" alt="xx"/></div>
+    {/each}
 
-    {:else}
-        {#each galleries as gallery}
-            <div class="box" in:fade="{{delay}}"
-                 on:click={(evt)=> onGalleryClick(evt, gallery.name)}>{gallery.name}
-
-                <img src="{gallery.items[0].src}" alt="xxx"/>
-            </div>
-        {/each}
-    {/if}
+{:else}
+    {#each galleries as gallery}
 
 
-</FluidBox>
+        <div class="box" in:fade="{{delay}}"
+
+             on:click={(evt)=> onGalleryClick(evt, gallery.name)}>
+
+            <AspectRatioBox>
+                <img class="box-image" src="{gallery.items[0].src}" alt="xxx"/>
+                <div class="hidden-content">{gallery.name}</div>
+            </AspectRatioBox>
+
+
+
+        </div>
+    {/each}
+{/if}
 
 <style>
     .box {
-        width: calc(100% - 10px);
-        height: 180px;
         background-color: #999999;
-        margin: 5px;
+        margin-bottom: 5px;
+        margin-left: 5px;
         overflow: hidden;
+        position: relative;
+    }
+
+    .hidden-content {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        color: #ae1b22;
+        font-size: 200%;
+    }
+
+    .box-image {
+        /*position: absolute;*/
+        /*top: 0;*/
+        width: 100%;
+        display: block;
     }
 </style>

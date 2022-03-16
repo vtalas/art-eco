@@ -73,11 +73,22 @@
         <FluidBox size=".5">&nbsp;</FluidBox>
     </FluidRow>
     <FluidRow>
-        <GalleryLayout
-                selectedGallery="{selectedGallery}"
-                galleries="{galleries}"
-                on:gallery-click="{onGalleryClick}"
-        />
+        <FluidBox size="0.5">
+            <GalleryLayout
+                    selectedGallery="{selectedGallery}"
+                    galleries="{galleries}"
+                    on:gallery-click="{onGalleryClick}"
+            />
+        </FluidBox>
+        <FluidBox size="0.5">
+            <GalleryLayout
+                    selectedGallery="{selectedGallery}"
+                    galleries="{galleries}"
+                    on:gallery-click="{onGalleryClick}"
+            />
+
+
+        </FluidBox>
     </FluidRow>
 
     {#if indexView}
