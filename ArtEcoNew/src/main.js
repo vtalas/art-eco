@@ -16,7 +16,7 @@ import * as utils from './utils.js';
 
  */
 
-import { galleries } from '../data/galleries.mjs';
+import { galleryColumns } from '../data/galleries.mjs';
 
 (async function() {
 
@@ -29,7 +29,7 @@ import { galleries } from '../data/galleries.mjs';
         props: {
             i18n,
             defaultTitle: 'Mezi stavařinou a uměním.',
-            galleries,
+            galleryColumns,
             selectedGallery: ''
         }
     });

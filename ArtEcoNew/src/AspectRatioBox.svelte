@@ -1,6 +1,18 @@
+<script>
+    export let attrs;
+
+    let widthRatio = 16;
+    let heightRatio = 9;
+
+    if (attrs && attrs.ratio) {
+        const parts = attrs.ratio.split(':')
+        widthRatio = parseInt(parts[0]);
+        heightRatio = parseInt(parts[1]);
+    }
+</script>
 
 
-<div class="aspect-ratio-box">
+<div class="aspect-ratio-box" style="padding-top: {(heightRatio / widthRatio) * 100 }%">
     <div class="aspect-ratio-box-inside">
         <slot/>
     </div>
@@ -10,8 +22,6 @@
     .aspect-ratio-box {
         height: 0;
         overflow: hidden;
-        padding-top: 56.25%; /* 16:9 */
-        padding-top: 100%;
         background: white;
         position: relative;
     }
@@ -22,8 +32,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color:rebeccapurple;
+        background-color: rebeccapurple;
     }
-
 
 </style>
