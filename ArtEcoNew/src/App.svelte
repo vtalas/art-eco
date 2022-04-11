@@ -5,7 +5,7 @@
     let indexView = true;
 
     export let defaultTitle;
-    export let galleries;
+    export let galleryColumns;
     export let selectedGallery;
     export let i18n
 
@@ -73,22 +73,15 @@
         <FluidBox size=".5">&nbsp;</FluidBox>
     </FluidRow>
     <FluidRow>
-        <FluidBox size="0.5">
-            <GalleryLayout
-                    selectedGallery="{selectedGallery}"
-                    galleries="{galleries}"
-                    on:gallery-click="{onGalleryClick}"
-            />
-        </FluidBox>
-        <FluidBox size="0.5">
-            <GalleryLayout
-                    selectedGallery="{selectedGallery}"
-                    galleries="{galleries}"
-                    on:gallery-click="{onGalleryClick}"
-            />
-
-
-        </FluidBox>
+        {#each galleryColumns as galleries}
+            <FluidBox size="1">
+                <GalleryLayout
+                        selectedGallery="{selectedGallery}"
+                        galleries="{galleries}"
+                        on:gallery-click="{onGalleryClick}"
+                />
+            </FluidBox>
+        {/each}
     </FluidRow>
 
     {#if indexView}

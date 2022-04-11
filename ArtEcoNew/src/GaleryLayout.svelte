@@ -1,6 +1,5 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import FluidBox from './fluidBox.svelte';
     import { fade, fly, slide } from 'svelte/transition';
     import AspectRatioBox from './AspectRatioBox.svelte';
 
@@ -13,6 +12,7 @@
         dispatch('gallery-click', { name });
     }
     const delay = 400
+    //TODO v.talas box-image - temp height 100% - use proper image ratio
 </script>
 
 
@@ -25,17 +25,14 @@
 {:else}
     {#each galleries as gallery}
 
-
         <div class="box" in:fade="{{delay}}"
 
              on:click={(evt)=> onGalleryClick(evt, gallery.name)}>
 
-            <AspectRatioBox>
+            <AspectRatioBox attrs="{gallery.items[0].attrs}">
                 <img class="box-image" src="{gallery.items[0].src}" alt="xxx"/>
                 <div class="hidden-content">{gallery.name}</div>
             </AspectRatioBox>
-
-
 
         </div>
     {/each}
@@ -45,7 +42,6 @@
     .box {
         background-color: #999999;
         margin-bottom: 5px;
-        margin-left: 5px;
         overflow: hidden;
         position: relative;
     }
@@ -62,6 +58,7 @@
         /*position: absolute;*/
         /*top: 0;*/
         width: 100%;
+        height: 100%;
         display: block;
     }
 </style>

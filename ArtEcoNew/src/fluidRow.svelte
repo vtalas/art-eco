@@ -1,3 +1,7 @@
+<script>
+    let gap = '5px';
+</script>
+
 <style>
     .wrapper {
         width: 100%;
@@ -9,6 +13,6 @@
 
 </style>
 
-<div class="wrapper">
+<div class="wrapper" style="gap:{gap}">
     <slot></slot>
 </div>

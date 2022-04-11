@@ -1,17 +1,20 @@
 <script>
-    export let size = '100'
+    export let size = '100';
+    export let minWidth = '250px';
+    //TODO v.talas , 'min-width':{minWidth} style flud-box
 </script>
 <style>
     .fluid-box {
-        /*background-color: lightcyan;*/
         display: inline-block;
-        margin: 0; padding: 0;
+        margin: 0;
+        padding: 0;
         position: relative;
-        /*font-size: 14px;*/
+
+        min-width: 250px;
     }
 </style>
 
-<div class="fluid-box" style="flex: {size}" >
+<div class="fluid-box" style="flex: {size}">
     <slot/>
 </div>
 
