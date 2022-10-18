@@ -11,6 +11,10 @@ body, html {
     --swiper-theme-color: #EB5C3B;
 }
 
+.swiper-container {
+    position: relative;
+}
+
 .swiper-pagination-bullet {
     opacity: 1;
     background: #EDEDED;
@@ -166,14 +170,14 @@ h3 {
 @media only screen and (max-height: 1200px) {
 
     .main {
-        max-width: 960px;
+        max-width: 680px;
     }
 }
 
 @media only screen and (max-height: 800px) {
 
     .main {
-        max-width: 680px;
+        max-width: 520px;
     }
 }
 
@@ -185,6 +189,7 @@ h3 {
 }
 
 @media only screen and (max-width: 800px), (max-height: 640px) {
+
 
     body {
         padding-bottom: 8rem;
