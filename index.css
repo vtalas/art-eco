@@ -129,6 +129,15 @@ h3 {
     color: #1E1E1C;
 }
 
+.stavario {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.stavario img {
+   margin-left: 1em;
+}
 
 .aspect-ratio-container {
     background-color: #eeeeee;
@@ -208,6 +217,7 @@ h3 {
         padding: 1rem 2rem;
     }
 }
+
 
 
 
