@@ -140,7 +140,8 @@ h3 {
 }
 
 .stavario img {
-   margin-left: 1em;
+    margin-left: 1em;
+    max-width: 86px;
 }
 
 .aspect-ratio-container {
