@@ -3,7 +3,7 @@ var mySwiper = new Swiper('.swiper-container', {
 	direction: 'horizontal',
 	loop: true,
 
-	// If we need pagination
+	// If we need pagination xxxxx
 	pagination: {
 		el: '.swiper-pagination',
 	},
